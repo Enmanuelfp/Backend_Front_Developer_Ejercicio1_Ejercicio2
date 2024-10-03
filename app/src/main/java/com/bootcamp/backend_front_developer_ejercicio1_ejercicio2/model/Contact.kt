@@ -7,15 +7,15 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "contactos")
 data class Contact(
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
+    val id: Long = 0L,
     @ColumnInfo("nombre")
-    val nombre: String,
+    var nombre: String,
     @ColumnInfo("telefon")
-    val telefono:String,
+    var telefono:String,
     @ColumnInfo("correo")
-    val correo:String,
+    var correo:String,
     @ColumnInfo("imagenPerfil")
-    val imagenPerfil:String,
+    var imagenPerfil:String,
     @ColumnInfo("fechaNacimiento")
-    val fechaNacimiento:String
+    var fechaNacimiento:String
 )

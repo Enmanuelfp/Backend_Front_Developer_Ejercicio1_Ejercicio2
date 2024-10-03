@@ -6,9 +6,9 @@ import com.bootcamp.backend_front_developer_ejercicio1_ejercicio2.model.Contact
 import com.bootcamp.backend_front_developer_ejercicio1_ejercicio2.repository.ContactRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,27 +16,20 @@ import javax.inject.Inject
 class ContactViewModel @Inject constructor(
     private val contactRepository: ContactRepository
 ) : ViewModel() {
-    private val _contactList = MutableStateFlow<List<Contact>>(emptyList())
-    val contactList: StateFlow<List<Contact>> = _contactList
 
-    private val _selectedContact = MutableStateFlow<Contact?>(null)
-    val selectedContact: StateFlow<Contact?> = _selectedContact
+    private val _idProfile = MutableStateFlow(0L)
+    val idProfile: StateFlow<Long> = _idProfile
 
-    fun getAllContact() {
-        viewModelScope.launch {
-            contactRepository.getALLContact()
-                .collect { contacs ->
-                _contactList.value = contacs
-            }
-        }
+    fun setIdProfile(id: Long) {
+        _idProfile.value = id
     }
 
-    fun getContactById(id:Long){
-        viewModelScope.launch {
-            contactRepository.getContactById(id).collect{contact->
-                _selectedContact.value = contact
-            }
-        }
+    fun getAllContact():Flow<List<Contact>> {
+           return contactRepository.getALLContact()
+    }
+
+    fun getContactById(id: Long):Flow<Contact>{
+            return contactRepository.getContactById(id)
     }
 
     fun addContact(contact: Contact) {

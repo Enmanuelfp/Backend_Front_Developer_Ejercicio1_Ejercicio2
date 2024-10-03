@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Backend_Front_Developer_Ejercicio1_Ejercicio2</string>
+
+    <string name="contactos">Contactos</string>
+    <string name="ingresar_datos">Ingresar datos</string>
+    <string name="actualizar_contacto">Actualizar Contacto</string>
+    <string name="agregar_contacto">Agregar contacto</string>
+    <string name="nombre_hint">Nombre</string>
+    <string name="telefono_hint">Número De Teléfono</string>
+    <string name="correo_hint">Email</string>
+    <string name="imagen_hint">Imagen</string>
+    <string name="fecha_nacimiento_hint">Fecha De Nacimiento</string>
+    <string name="guardar_contacto">Guardar Contacto</string>
+
+
 </resources>

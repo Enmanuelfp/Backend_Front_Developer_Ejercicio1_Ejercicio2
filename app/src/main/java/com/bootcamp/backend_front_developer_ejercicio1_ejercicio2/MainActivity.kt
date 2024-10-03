@@ -11,18 +11,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.bootcamp.backend_front_developer_ejercicio1_ejercicio2.navigate.NavManager
 import com.bootcamp.backend_front_developer_ejercicio1_ejercicio2.ui.theme.Backend_Front_Developer_Ejercicio1_Ejercicio2Theme
 import com.bootcamp.backend_front_developer_ejercicio1_ejercicio2.view.HomeView
+import com.bootcamp.backend_front_developer_ejercicio1_ejercicio2.viewModel.ContactViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             Backend_Front_Developer_Ejercicio1_Ejercicio2Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeView(innerPadding)
-                }
+                    NavManager()
             }
         }
     }

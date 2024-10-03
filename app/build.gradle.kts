@@ -63,6 +63,10 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
 
+    //coil
+    implementation("io.coil-kt:coil-compose:2.7.0")
+    //navegacion
+    implementation("androidx.navigation:navigation-compose:2.8.1")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
